@@ -4,10 +4,14 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae architecto autem dolores magni molestiae, voluptatum tempore iusto perferendis minus corporis.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae architecto autem dolores magni molestiae, voluptatum tempore iusto perferendis minus corporis.</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae architecto autem dolores magni molestiae, voluptatum tempore iusto perferendis minus corporis.</p>
+
+        <div>{{data}}</div>
     </div>
 </template>
 
 <script setup lang="ts">
+    const {data} = await useFetch("/api/currency/GBP")
+
 
 </script>
 

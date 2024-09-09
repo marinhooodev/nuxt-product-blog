@@ -1,4 +1,10 @@
 <template>
+
+  <Head>
+    <Title>Nuxt Store | {{ product.title }}</Title>
+    <Meta name="description" :content="product.description" />
+  </Head>
+
   <Loading v-if="pending" />
   <div v-else>
     <ProductDetails :product="product" />
@@ -17,7 +23,11 @@ const apiURL = `https://fakestoreapi.com/products/${id}`;
 
 // fetch the exact product via id
 
-const { data: product, pending }: any = useFetch(apiURL);
+const { data: product, pending }: any = await useFetch(apiURL);
+
+if(!product.value) {
+  throw createError({statusCode: 404, statusMessage: "Product Not Found", fatal: true})
+}
 </script>
 
 <style scoped></style>

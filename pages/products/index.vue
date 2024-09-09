@@ -10,11 +10,23 @@
 </template>
 
 <script setup lang="ts">
-const apiURL = "https://fakestoreapi.com/products";
 
 definePageMeta({
   layout: "products",
 });
+
+// A good way to fastly change page head settings.
+
+useHead({
+  title: "Nuxt Store | Products",
+  meta: [
+    { name: 'description', content: "Nuxt 3 Store Products Page" }
+  ]
+})
+
+const apiURL = "https://fakestoreapi.com/products";
+
+
 
 // fetch the products
 
@@ -23,6 +35,8 @@ definePageMeta({
 // For Professional Web Applictions that needs to handle many access at same time, SSR is worst, because it overloads the server. So, do not use await.
 
 const { data: products, pending }: any = useFetch(apiURL);
+
+
 </script>
 
 <style scoped>
